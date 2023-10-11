@@ -10,7 +10,7 @@ const FormControls = styled.div`
     font-weight: bold;
     display: block;
     margin-bottom: 0.5rem;
-    color: ${(props) => (props.isred ? "red" : "black")};
+    color: ${(props) => (props.haserror ? "red" : "black")};
   }
 
   & input {
@@ -20,7 +20,7 @@ const FormControls = styled.div`
     font: inherit;
     line-height: 1.5rem;
     padding: 0 0.25rem;
-    border-color: ${(props) => (props.isred ? "red" : "#ccc")};
+    border-color: ${(props) => (props.haserror ? "red" : "#ccc")};
   }
 
   & input:focus {
@@ -52,7 +52,7 @@ const CourseInput = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <FormControls isred={!isValid}>
+      <FormControls haserror={!isValid}>
         <label>Course Goal</label>
         <input type="text" onChange={goalInputChangeHandler} />
       </FormControls>
